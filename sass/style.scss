@@ -1,0 +1,360 @@
+/****** Global ******/
+*, *::before, *::after {        /* deklaracja mówiąca, ze do rozmiarów wszystkich */
+	box-sizing: border-box;     /* elementów HTML wlicza się padding i border */
+}
+body {
+  margin: 0;
+  text-align: center;   
+  /* background: #ffffff; /* biały */
+  color: #2c2c54;
+  font-size: 16px;
+  line-height: 1.7;
+  font-family: 'Inconsolata', monospace;
+  /* font-family: 'Signika', sans-serif; */
+  /* #33d9b2 (zielony), #ff5252 (czerwony) #0097e6 (niebieski)  #ffffff (biały) */
+  /* background: #2c2c54; /* granatowy */
+}
+section {
+  padding: 96px 0;
+  position: relative;
+}
+.container {
+  max-width: 1140px;
+  padding-right: 20px;
+  padding-left: 20px;
+  margin: 0 auto;
+}
+.btn {                       /* ostylowanie linków na przyciski */
+  display: inline-block;
+  min-width: 160px;
+  margin: 24px auto 0 auto;
+  padding: 16px;
+  border-radius: 5px;
+  font-family: 'Inconsolata', monospace;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border-width: 2px;
+  border-style: solid;
+  background-color: inherit;
+  background-position: 100% 0;    /* schowanie gradientu */
+  background-size: 300%;
+  transition: all 1s;     /* dodaje anmiacje przycisku */
+}
+.btn-one {
+  border-color: #ffffff;
+  color: #ffffff;
+  background-image: linear-gradient(90deg, #ffffff 50%, transparent 50%);    /* tło jako gradient */
+}
+.btn-two {
+  border-color:  #33d9b2;
+  color:  #33d9b2;
+  background-image: linear-gradient(90deg, #33d9b2 50%, transparent 50%);    /* tło jako gradient */
+  position: absolute;
+  left: 0;
+}
+.btn-three {
+  border-color: #ff5252;
+  color: #ff5252;
+  background-image: linear-gradient(90deg,  #ff5252 50%, transparent 50%);    /* tło jako gradient */
+  position: absolute;
+  left: 0;
+}
+.btn-four {
+  border-color: #0097e6;
+  color:#0097e6;
+  background-image: linear-gradient(90deg, #0097e6 50%, transparent 50%);    /* tło jako gradient */
+  position: absolute;
+  left: 0;
+}
+.btn-five {
+  border: none;
+  margin: 36px 0;
+  padding: 0;
+  text-align: left;
+}
+.btn:hover {
+  background-position: 0 100%;    /* wypełnienie przycisku gradnientem */
+  color: #ffffff;                 /* po najechaniu kursorem */
+}
+.btn-one:hover {
+  color: #0097e6;  
+}
+.btn-five:hover {
+  color: #cd1a53;
+}
+.section-title {
+  text-align: left;
+  font-size: 48px;
+  margin: 0 0 72px 0;
+}
+.wraper {    
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+/****** Navigation ******/
+.navigation {
+  background-color: #0097e6;
+  padding: 12px 0;  
+}
+.navigation ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  text-align: left;
+}
+.navigation ul li {     /*wyświetlanie list menu pierwszego poziomu */
+  display: inline-block;
+  margin: 0 36px 0 0;
+  position: relative; /* rodzic menu drugiego poziomu */
+}
+.navigation a {
+  text-decoration: none;
+  color: #ffffff;
+}
+.navigation a:hover {
+  color: #33d9b2;
+}
+.navigation ul ul li {  /* wyświetlanie list menu drugiego poziomu */
+  display: block;
+  margin: 0 0 12px 0;
+}
+.navigation ul ul {     /* ukrycie menu drugiego poziomu */
+  display: none;
+} 
+.navigation li:hover ul {   /* selektor wyświetlający listy menu drugiego poziomu */
+  display: block;         /* po najechaniu myszką na element listy pierwszego rzędu */
+  text-align: center;
+  position: absolute;     /* żeby lista drugiego poziomu nie rozpychała nawigacji */
+  background: #ffffff;
+  left: 50%;                      /* wycentrowanie menu drugiego poziomu względem rodzica */
+  transform: translateX(-50%);    /* (menu drugiego poziomu) */
+  padding: 12px;                  
+}
+.navigation li ul a {   /* selektor wybierający linki (<a>) na liście drugiego poziomu */
+  color: #0097e6;  
+  display: block;
+  padding: 0 24px; 
+}  
+.navigation li ul a:hover { 
+  color: #ff5252;  
+}
+/****** Header ******/
+.splash { /* element rodzic */
+  background: #0097e6;
+  color:  #ffffff;
+  min-height: 500px;
+  display: flex;
+}
+.splash-inner { 
+  margin: auto;
+  max-width: 70%;
+  text-align: left;
+}
+h1 {
+  margin: 0;
+  font-size: 72px;
+  word-spacing: -24px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+h2 {
+  margin: 24px 0;
+  font-size: 16px;
+  font-weight: 300;
+}
+.page-title span {
+  font-style: italic;
+  font-weight: 100;
+}
+/****** Services ******/
+.box-one {      
+  position: relative;
+  flex: 0 0 33.333%;
+  min-height: 330px;
+}
+.number {
+  position: absolute;
+  color: #33d9b2;
+  opacity: 0.3;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 100px;
+  top: -45px;
+}
+.service-name {
+  font-size: 24px;
+  margin: 0 0 12px 0;
+  text-align: left;
+  line-height: 1;
+}
+.box-one p {
+  text-align: left;  
+}
+.box-one p:first-of-type {
+  font-family: 'Signika', sans-serif;
+}
+/****** Works ******/
+.box-two { 
+  position: relative;
+  flex: 0 0 50%;
+}
+.work-image {
+  position: absolute;
+  left: 0;
+  width: 50%;
+  height: 80%;
+}
+.work-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.work-image::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color: grey;
+  opacity: 0.3;
+  left: 20px;
+  top: 20px;
+}
+.work-description {
+  padding: 0 5% 95px 55%;
+  text-align: left;
+  width: 50;
+}
+/****** Contact ******/
+.contact {
+  background-color: #0097e6;
+  padding: 12px 0; 
+  color:  #ffffff;
+  min-height: 500px;
+}
+.contact h1 {
+  text-align: left;
+}
+form {
+  flex: 2 0 0; 
+  margin-right: 50px;
+}
+input, textarea {
+  background-color: #0097e6;
+  color: #ffffff;
+  display: block;
+  width: 100%;
+  height: 20%;
+  border: none;
+  border-bottom: 5px solid white;
+}
+textarea {
+  height: 40%;
+  padding-top: 20px;
+}
+::placeholder {
+  color: white;
+}
+textarea:focus, input:focus{
+  outline: none;
+}
+.contact-data {
+  flex: 1 0 0;
+  text-align: left;
+}
+.contact-data span{
+  font-size: 20px;
+  font-weight: bold;
+}
+.contact a {
+  float: left;
+}
+/****** Footer ******/
+.footer ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 48px 0;
+  text-align: center;
+}
+.footer ul li {
+  display: inline-block;
+  margin: 0 36px 0 0;
+}
+.footer a {
+  font-size: 0;
+}
+.footer i {
+  font-size: 30px;
+  background: red;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+}
+.footer i:hover {
+  transition: 0.5s all; 
+  transform: scale(1.6);
+}
+/****** Media ******/
+@media (max-width: 767px) {
+  .wraper {
+    flex-direction: column;
+  } 
+  .work-image {
+    position: relative;
+    max-width: 100%;
+    height: 150px;
+  }
+  .work-description {
+    padding: 10px 55% 10px 0;
+  }
+  form {
+    margin-bottom: 40px;
+  }
+  .btn {
+    margin: 0;
+  }
+  .contact {
+    min-height: 850px;
+  }
+  .navigation ul li {
+    margin: 0 10px 0 0;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
