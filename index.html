@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--ustawienie responsywności dla strony-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--ustawienie wartości dla szerokości i powiększenia (zoom) strony tak aby odpowiadały parametrom różnych urządzeń, np smartfona -->
     <title>Strona agencji kreatywnej</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css">
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&family=Signika:wght@700&display=swap" rel="stylesheet">
@@ -11,10 +11,10 @@
   <body>
     <nav class="navigation">
       <div class="container">
-        <ul>
+        <ul class="horizontal-menu">  <!-- menu pierwszego poziomu -->
           <li>
             <a href="#">about</a>
-            <ul>
+            <ul class="dropdown"> <!-- menu drugiego poziomu -->
               <li>
                 <a href="#">team</a>
               </li>
@@ -37,7 +37,7 @@
     </nav>
     <header class="splash">
       <div class="splash-inner">
-        <h1 class="page-title">hello,<br>we are <span>creatively</span>.</h1>
+        <h1 class="page-title">Hello,<br>we are<br><span>creatively</span>.</h1>
         <h2 class="page-subtitle">we build brands and products to bring big ideas into life</h2>
         <a href="#" class="btn btn-one">see our work</a>
       </div>
@@ -121,7 +121,7 @@
     </section>
     <section class="contact">
       <div class="container">
-        <h1>contact us</h1>
+        <h1 class="page-title">contact us</h1>
         <div class="wraper">
           <form>
             <input type="text" placeholder="Your name">
@@ -143,11 +143,11 @@
     <footer class="footer">
       <div class="container">
         <ul>
-          <li><a href="#"><i class="fa-brands fa-facebook-f"></i>Facebook</a></li>
-          <li><a href="#"><i class="fa-brands fa-twitter"></i>Twitter</a></li>
-          <li><a href="#"><i class="fa-brands fa-behance"></i>Behance</a></li>
+          <li><a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook-f"></i>Facebook</a></li>
+          <li><a href="https://twitter.com/" target="_blank"><i class="fa-brands fa-twitter"></i>Twitter</a></li>
+          <li><a href="https://www.behance.net/" target="_blank"><i class="fa-brands fa-behance"></i>Behance</a></li>
         </ul>
       </div>
     </footer>
   </body>
-</html>    
+</html>
