@@ -1,188 +1,110 @@
 /****** Variables ******/
-$color-main: #ffffff;
-$color-paragraph: #2c2c54;
-$color-background: #0097e6;
-$color-icons: #ff5252;
-
-$font-family-main: 'Inconsolata', monospace;
-
-$transition-buttons: all 1s;
+$color-font-base: #ffffff;
+$color-font-paragraph: #2c2c54;
+$color-background-section: #0097e6;
+$color-background-icons: #ff5252;
+$font-family-base: 'Inconsolata', monospace;
+$transition-buttons: all .8s;
 $transition-icons: all .6s;
 
 /****** Global ******/
 *, *::before, *::after {        // do rozmiaru każdego elementu HTML wlicza się padding i border
 	box-sizing: border-box;
 }
-
 body {
   margin: 0;
   text-align: center;
-  color: $color-paragraph;
-  font-size: 16px;
+  color: $color-font-paragraph;
+  font-size: 1em;
   line-height: 1.7;
-  font-family: $font-family-main
+  font-family: $font-family-base;
 }
-
 section {
-  padding: 96px 0;
+  padding: 70px 0;
   position: relative;
 }
-
 .container {
   max-width: 1140px;
   padding-right: 20px;
   padding-left: 20px;
   margin: 0 auto; // wycentrowanie w poziomie
 }
-
 .btn { // ostylowanie linków na przyciski
   display: inline-block; // elementy liniowe z możliwością ustawienia właściwości margin, padding, width i height
   min-width: 160px;
-  margin: 24px auto 0 auto;
   padding: 16px;
+  border: 2px solid;
   border-radius: 5px;
   text-decoration: none;
   cursor: pointer;
-  border-width: 2px;
-  border-style: solid;
-  background-color: inherit;
-  background-position: right; // schowanie gradientu
-  background-size: 300%;
+  background: right/200%;
   transition: $transition-buttons; // dodanie animacji do przycisku
-
   &:hover {
     background-position: left; // wysunięcie gradientu
-    color: #ffffff;
-  }
-
-  &-one {
-    border-color: #ffffff;
-    color:#ffffff;
-    background-image: linear-gradient(90deg, #ffffff 50%, transparent 50%); // zdefiniowanie gradnientu, który pozwoli na płynne przejście pomiędzy kolorami tła
-
-    &:hover {
-      color: #0097e6;
-    }
-  }
-
-  &-two {
-    border-color:  #33d9b2;
-    color:  #33d9b2;
-    background-image: linear-gradient(90deg, #33d9b2 50%, transparent 50%);    /* tło jako gradient */
-    position: absolute;
-    left: 0;
-  }
-
-  &-three {
-    border-color: #ff5252;
-    color: #ff5252;
-    background-image: linear-gradient(90deg,  #ff5252 50%, transparent 50%);    /* tło jako gradient */
-    position: absolute;
-    left: 0;
-  }
-
-  &-four {
-    border-color: $color-background;
-    color:$color-background;
-    background-image: linear-gradient(90deg, #0097e6 50%, transparent 50%);    /* tło jako gradient */
-    position: absolute;
-    left: 0;
-  }
-
-  &-five {
-    border: none;
-    margin: 36px 0;
-    padding: 0;
-    text-align: left;
-    transition: none; // wyłączenie animacji zmian wartości
-
-    &:hover {
-      font-weight: bold;
-      color: #cd1a53;
-    }
   }
 }
-
 .section-title {
   text-align: left;
   font-size: 48px;
   margin: 0 0 72px 0;
 }
-
 .page-title {
   margin: 0;
-  font-size: 72px;
-  word-spacing: -24px;
+  font-size: 50px;
+  word-spacing: normal;
   line-height: 1.2;
   font-weight: 700;
 }
-
 .page-subtitle {
   margin: 24px 0;
   font-size: 16px;
   font-weight: 300;
 }
-
 .wraper {
   margin: 0 auto;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 
 /****** Navigation ******/
 .navigation {
-  background-color: $color-background;
+  background-color: $color-background-section;
   padding: 12px 0;
-}
-
- .horizontal-menu { // menu pierwszego poziomu
-  padding: 0;
-  margin: 0;
-  list-style-type: none;
-  text-align: left;
-
-  li {
-    display: inline-block; // wyświetlenie elementów menu poziomo
-    margin: 0 36px 0 0;
-    position: relative; // dziecko tego elementu będzie pozycjonowane względem swojego rodzica
-
+  ul {
+    list-style-type: none;
+    text-align: left;
     a {
       text-decoration: none;
-      color: $color-main;
-
-      &:hover {
-        color: #33d9b2;
-      }
-    }
-
-    .dropdown { // menu drugiego poziomu
-      display: none;
-    }
-
-    &:hover .dropdown {   // wyświetlenie menu drugiego poziomu po najechaniu
-      display: block;     // myszką na element menu pierwszego poziomu
-      text-align: left;
-      background: $color-main;
-      position: absolute; // pozycjonowanie menu drugiego poziomu względem
-      top: 25px;          // elementu pierwszego poziomu
-      left: 0;
-      padding: 12px;
+      color: $color-font-base;
     }
   }
 }
-
-.dropdown {
-
+.horizontal-menu { // menu pierwszego poziomu
+  padding: 0;
+  margin: 0;
   li {
-    display: block; // ustawienie elementów menu drugiego poziomu w pionowym rzędzie
-    margin: 0 0 12px 0;
-
+    &:hover .dropdown { // wyświetlenie menu drugiego poziomu
+      display: block;
+    }
+    a:hover {
+      color: #33d9b2;
+    }
+  }
+}
+.dropdown { // menu drugiego poziomu
+  display: none;
+  background: #ffffff;
+  padding: 12px;
+  li {
+    &:not(:last-child) {
+      margin-bottom: 12px;
+    }
     a {
-      color: $color-background;
+      color: #0097e6;
       display: block; // ustawienie szerokości linków na 100% szerokości rodzica
       padding: 0 24px;
-
       &:hover {
         color: #ff5252;
       }
@@ -192,19 +114,25 @@ section {
 
 /****** Header ******/
 .splash {
-  background: $color-background;
-  color:  $color-main;
+  background: $color-background-section;
+  color:  $color-font-base;
   min-height: 500px;
   display: flex; // właściowść pozwalająca zarządzać elementami zagnieżdżonymi w kontenerze wg podejścia flexbox
-
   &-inner {
+    max-width: 85%;
     margin: auto; // wyśrodkowanie elementu w pionie i poziomie wewnątrz elastycznego (flex) kontenera
-    max-width: 70%;
     text-align: left;
-
     span {
       font-style: italic;
       font-weight: 100;
+    }
+    .btn-one {
+      border-color: #ffffff;
+      color:#ffffff;
+      background-image: linear-gradient(90deg, #ffffff 50%, transparent 50%); // zdefiniowanie gradnientu, który pozwoli na płynne przejście pomiędzy kolorami tła
+      &:hover {
+        color: #0097e6;
+      }
     }
   }
 }
@@ -212,32 +140,48 @@ section {
 /****** Services ******/
 .box-one {
   position: relative;
-  flex: 0 0 33.333%; // każde z elementów zajmie tyle samo miejsca w kontenerze
   min-height: 330px;
-
+  text-align: left;
+  margin-bottom: 50px;
   .service-name {
     font-size: 24px;
     margin: 0 0 12px 0;
     text-align: left;
     line-height: 1;
   }
-
   .number {
     position: absolute;
     top: -45px;
-    height: 100px;
     color: #33d9b2;
     opacity: 0.3;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 100px;
   }
-
   p {
     text-align: left;
     padding-left: 10px;
-
     &:first-of-type {
       font-family: 'Signika', sans-serif;
+    }
+  }
+  .btn {
+    &-two {
+      border-color:  #33d9b2;
+      color:  #33d9b2;
+      background-image: linear-gradient(90deg, #33d9b2 50%, transparent 50%);    /* tło jako gradient */
+    }
+    &-three {
+      border-color: #ff5252;
+      color: #ff5252;
+      background-image: linear-gradient(90deg,  #ff5252 50%, transparent 50%);    /* tło jako gradient */
+    }
+    &-four {
+      border-color: #0097e6;
+      color: #0097e6;
+      background-image: linear-gradient(90deg, #0097e6 50%, transparent 50%);    /* tło jako gradient */
+    }
+    &:hover {
+      color: #ffffff;
     }
   }
 }
@@ -245,20 +189,14 @@ section {
 /****** Works ******/
 .box-two {
   position: relative;
-  flex: 0 0 50%;
-
   .work-image {
-    position: absolute;
-    left: 0;
-    width: 50%;
-    height: 80%;
-
+    position: relative;
+    width: 100%;
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-
     &::after {
       position: absolute;
       content: '';
@@ -270,56 +208,60 @@ section {
       top: 10px;
     }
   }
-
   .work-description {
-    padding: 0 5% 95px 55%;
     text-align: left;
+    .btn-five {
+      border: none;
+      margin-bottom: 36px;
+      padding: 0;
+      text-align: left;
+      transition: none; // wyłączenie animacji zmian wartości
+      &:hover {
+        font-weight: bold;
+        color: #cd1a53;
+      }
+    }
   }
 }
 
 /****** Contact ******/
 .contact {
-  background-color: $color-background;
+  background-color: $color-background-section;
   padding: 12px 0;
-  color:  $color-main;
+  color:  $color-font-base;
   min-height: 500px;
-
   .page-title {
     text-align: left;
   }
-
   form {
-    flex: 2 0 0; // lub flex: 2
-    margin-right: 50px;
-
+    margin-bottom: 20px;
     input, textarea {
-      background-color: $color-background;
-      color: $color-main;
+      background-color: $color-background-section;
+      color: $color-font-base;
       display: block;
       width: 100%;
-      height: 20%;
       border: none;
-      border-bottom: 5px solid $color-main;
-
+      border-bottom: 5px solid $color-font-base;
+      margin-bottom: 20px;
       &::placeholder {
-        color: $color-main;
+        color: $color-font-base;
       }
-
       &:focus{
         outline: none;
       }
     }
-
-    textarea {
-      height: 40%;
-      padding-top: 20px;
+    .btn-six {
+      border-color: #ffffff;
+      color:#ffffff;
+      background-image: linear-gradient(90deg, #ffffff 50%, transparent 50%); // zdefiniowanie gradnientu, który pozwoli na płynne przejście pomiędzy kolorami tła
+      margin-bottom: 10px;
+      &:hover {
+        color: #0097e6;
+      }
     }
   }
-
   .contact-data {
-    flex: 1 0 0; // lub flex: 1
     text-align: left;
-
     span {
       font-size: 20px;
       font-weight: bold;
@@ -333,20 +275,18 @@ section {
     list-style-type: none;
     padding: 0;
     margin: 48px 0;
-    text-align: center;
-
     li {
       display: inline-block;
-      margin: 0 36px 0 0;
+      &:not(:last-child) {
+        margin: 0 36px 0 0;
+      }
     }
   }
-
   a {
     font-size: 0;
-
     i {
       font-size: 30px;
-      background: $color-icons;
+      background: $color-background-icons;
       width: 60px;
       height: 60px;
       line-height: 60px;
@@ -363,40 +303,86 @@ section {
 }
 
 /****** Media ******/
-@media (max-width: 767px) { // tworzenie wersji mobilnej strony (style mobile)
-  .wraper {
-    flex-direction: column;
+@media screen and (min-width: 375px) {
+  .splash {
+    justify-content: left;
   }
-
-  .page-title {
-    font-size: 50px;
-    word-spacing: normal;
+  .splash-inner {
+    max-width: 70%;
   }
-
-  .work-image {
-    position: relative;
-    max-width: 100%;
-    height: 150px;
+  .horizontal-menu {
+    > li { //odniesienie do bezpośredniego potomka
+      display: inline-block; // wyświetlenie elementów menu poziomo z możliwością ustawienia ich wymiarów
+      position: relative; // dziecko tego elementu będzie pozycjonowane względem swojego rodzica
+      &:not(:first-child) {
+        a {
+          border-left: 1px solid #40b3c3;
+          padding-left: 10px;
+        }
+      }
+      &:hover .dropdown {
+        position: absolute; // pozycjonowanie menu drugiego poziomu względem
+        top: 25px;          // elementu pierwszego poziomu
+        left: 0;
+        padding: 12px;
+      }
+    }
   }
-
+}
+@media screen and (min-width: 768px) { // wersja desktop
   .work-description {
-    padding: 10px 55% 10px 0;
+    .btn-five {
+      margin-top: 36px;
+    }
   }
-
-  form {
-    margin-bottom: 40px;
+  .wraper {
+    flex-direction: row;
   }
-
-  .btn {
-    margin: 0;
+  .page-title {
+    font-size: 72px;
+    word-spacing: -24px;
   }
-
+  .horizontal-menu {
+    li {
+      margin-right: 36px;
+      &:not(:first-child) {
+        a {
+          border: none;
+        }
+      }
+    }
+  }
+  .box-one {
+    flex: 0 0 33.333%; // każde z elementów zajmie tyle samo miejsca w kontenerze
+    p {
+      padding-right: 20px;
+    }
+  }
+  .box-two {
+    .work-image {
+      position: absolute;
+      left: 0;
+      width: 50%;
+      height: 80%;
+    }
+    .work-description {
+      padding: 0 5% 95px 55%;
+    }
+  }
   .contact {
-    min-height: 850px;
+    form {
+      flex: 2 0 0; // lub flex: 2
+      margin-right: 50px;
+      text-align: left;
+    }
+    .contact-data {
+      flex: 1 0 0; // lub flex: 1
+    }
   }
-
-  .horizontal-menu li {
-    margin: 0 10px 0 0;
+}
+@media screen and (min-width: 1024px) {
+  .box-two {
+    flex: 0 0 50%;
   }
 }
 
