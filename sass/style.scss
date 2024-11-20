@@ -1,5 +1,5 @@
 /****** Variables ******/
-$color-font-base: #ffffff;
+$color-font-base: #fff;
 $color-font-paragraph: #2c2c54;
 $color-background-section: #0097e6;
 $color-background-icons: #ff5252;
@@ -36,12 +36,7 @@ section {
   border: 2px solid;
   border-radius: 5px;
   text-decoration: none;
-  cursor: pointer;
-  background: right/200%;
-  transition: $transition-buttons; // dodanie animacji do przycisku
-  &:hover {
-    background-position: left; // wysunięcie gradientu
-  }
+  background-color: inherit;
 }
 .section-title {
   text-align: left;
@@ -95,7 +90,7 @@ section {
 }
 .dropdown { // menu drugiego poziomu
   display: none;
-  background: #ffffff;
+  background: #fff;
   padding: 12px;
   li {
     &:not(:last-child) {
@@ -127,12 +122,8 @@ section {
       font-weight: 100;
     }
     .btn-one {
-      border-color: #ffffff;
-      color:#ffffff;
-      background-image: linear-gradient(90deg, #ffffff 50%, transparent 50%); // zdefiniowanie gradnientu, który pozwoli na płynne przejście pomiędzy kolorami tła
-      &:hover {
-        color: #0097e6;
-      }
+      border-color: #fff;
+      color:#fff;
     }
   }
 }
@@ -168,20 +159,14 @@ section {
     &-two {
       border-color:  #33d9b2;
       color:  #33d9b2;
-      background-image: linear-gradient(90deg, #33d9b2 50%, transparent 50%);    /* tło jako gradient */
     }
     &-three {
       border-color: #ff5252;
       color: #ff5252;
-      background-image: linear-gradient(90deg,  #ff5252 50%, transparent 50%);    /* tło jako gradient */
     }
     &-four {
       border-color: #0097e6;
       color: #0097e6;
-      background-image: linear-gradient(90deg, #0097e6 50%, transparent 50%);    /* tło jako gradient */
-    }
-    &:hover {
-      color: #ffffff;
     }
   }
 }
@@ -216,10 +201,6 @@ section {
       padding: 0;
       text-align: left;
       transition: none; // wyłączenie animacji zmian wartości
-      &:hover {
-        font-weight: bold;
-        color: #cd1a53;
-      }
     }
   }
 }
@@ -251,13 +232,10 @@ section {
       }
     }
     .btn-six {
-      border-color: #ffffff;
-      color:#ffffff;
-      background-image: linear-gradient(90deg, #ffffff 50%, transparent 50%); // zdefiniowanie gradnientu, który pozwoli na płynne przejście pomiędzy kolorami tła
+      border-color: #fff;
+      color:#fff;
       margin-bottom: 10px;
-      &:hover {
-        color: #0097e6;
-      }
+      cursor: pointer;
     }
   }
   .contact-data {
@@ -294,22 +272,12 @@ section {
       border-radius: 50%;
       text-align: center;
       transition: $transition-icons;
-
-      &:hover {
-        transform: scale(1.3);
-      }
     }
   }
 }
 
 /****** Media ******/
-@media screen and (min-width: 375px) {
-  .splash {
-    justify-content: left;
-  }
-  .splash-inner {
-    max-width: 70%;
-  }
+@media screen and (min-width: 376px) {
   .horizontal-menu {
     > li { //odniesienie do bezpośredniego potomka
       display: inline-block; // wyświetlenie elementów menu poziomo z możliwością ustawienia ich wymiarów
@@ -328,11 +296,79 @@ section {
       }
     }
   }
+  .splash {
+    justify-content: left;
+  }
+  .splash-inner {
+    max-width: 70%;
+  }
+  .box-two {
+    .work-image {
+      max-width: 80%;
+    }
+  }
+  .contact {
+    form {
+      max-width: 80%;
+    }
+  }
 }
-@media screen and (min-width: 768px) { // wersja desktop
-  .work-description {
-    .btn-five {
-      margin-top: 36px;
+@media screen and (max-width: 768px) { //dotykowe urządzenia (bez możliwości użycia stanu :hover)
+  .btn:active {
+    background-color: #fff;
+  }
+  .splash {
+    &-inner {
+      .btn-one:active {
+        color: #0097e6;
+      }
+    }
+  }
+  .box-one {
+    .btn {
+      &-two:active {
+        background-color:  #33d9b2;
+      }
+      &-three:active {
+        background-color: #ff5252;
+      }
+      &-four:active {
+        background-color: #0097e6;
+      }
+      &:active {
+        color: #fff;
+      }
+    }
+  }
+  .box-two {
+    .work-description {
+      .btn-five:active {
+        font-weight: bold;
+        color: #cd1a53;
+      }
+    }
+  }
+  .contact {
+    form {
+      .btn-six:active {
+        color: #0097e6;
+      }
+    }
+  }
+  .footer {
+    a {
+      i:active {
+        color: #1877F2;
+      }
+    }
+  }
+}
+@media screen and (min-width: 769px) { //dodanie efektu animowania i stanu :hover do przycisków
+  .btn {
+    background: right/200%;
+    transition: $transition-buttons; // dodanie animacji
+    &:hover {
+      background-position: left; // wysunięcie gradientu
     }
   }
   .wraper {
@@ -352,10 +388,34 @@ section {
       }
     }
   }
+  .splash {
+    &-inner {
+      .btn-one {
+        background-image: linear-gradient(90deg, #fff 50%, transparent 50%); // zdefiniowanie gradnientu, który pozwoli na płynne przejście pomiędzy kolorami tła
+        &:hover {
+          color: #0097e6;
+        }
+      }
+    }
+  }
   .box-one {
     flex: 0 0 33.333%; // każde z elementów zajmie tyle samo miejsca w kontenerze
     p {
       padding-right: 20px;
+    }
+    .btn {
+      &-two {
+        background-image: linear-gradient(90deg, #33d9b2 50%, transparent 50%);    /* tło jako gradient */
+      }
+      &-three {
+        background-image: linear-gradient(90deg,  #ff5252 50%, transparent 50%);    /* tło jako gradient */
+      }
+      &-four {
+        background-image: linear-gradient(90deg, #0097e6 50%, transparent 50%);    /* tło jako gradient */
+      }
+      &:hover {
+        color: #fff;
+      }
     }
   }
   .box-two {
@@ -367,6 +427,13 @@ section {
     }
     .work-description {
       padding: 0 5% 95px 55%;
+      .btn-five {
+        margin-top: 36px;
+        &:hover {
+          font-weight: bold;
+          color: #cd1a53;
+        }
+      }
     }
   }
   .contact {
@@ -374,13 +441,26 @@ section {
       flex: 2 0 0; // lub flex: 2
       margin-right: 50px;
       text-align: left;
+      .btn-six {
+        background-image: linear-gradient(90deg, #fff 50%, transparent 50%);
+        &:hover {
+          color: #0097e6;
+        }
+      }
     }
     .contact-data {
       flex: 1 0 0; // lub flex: 1
     }
   }
+  .footer {
+    a {
+      i:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1025px) { // wersja desktop
   .box-two {
     flex: 0 0 50%;
   }
